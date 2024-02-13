@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -13,11 +14,11 @@
         android:theme="@style/Theme.AndroidPokedexCompose"
         tools:targetApi="31">
         <activity
-            android:name=".ui.PokedexActivity"
+            android:name=".ui.activities.PokedexActivity"
             android:exported="false"
             android:theme="@style/Theme.AndroidPokedexCompose" />
         <activity
-            android:name=".ui.SplashActivity"
+            android:name=".ui.activities.SplashActivity"
             android:exported="true"
             android:theme="@style/Theme.AndroidPokedexCompose">
             <meta-data
