@@ -8,4 +8,8 @@
 
 <h3>**Splash Screen:**</h3>
 
-![image](https://github.com/Cintia333Nun/AndroidPokedexCompose/assets/55222275/e8e247e3-5a16-4d79-8299-2323bb79e820)
+<img src="https://github.com/Cintia333Nun/AndroidPokedexCompose/assets/55222275/e8e247e3-5a16-4d79-8299-2323bb79e820" 
+         alt="Imagen" 
+         width="300" 
+         height="600">
+
