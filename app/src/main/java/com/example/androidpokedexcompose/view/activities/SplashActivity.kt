@@ -1,5 +1,12 @@
-package com.example.androidpokedexcompose.ui.screens
+package com.example.androidpokedexcompose.view.activities
 
+import android.annotation.SuppressLint
+import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import android.os.Handler
+import android.os.Looper
+import android.content.Intent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -11,6 +18,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.airbnb.lottie.compose.LottieAnimation
 import com.airbnb.lottie.compose.LottieCompositionSpec
@@ -18,7 +26,40 @@ import com.airbnb.lottie.compose.LottieConstants
 import com.airbnb.lottie.compose.animateLottieCompositionAsState
 import com.airbnb.lottie.compose.rememberLottieComposition
 import com.example.androidpokedexcompose.R
-import com.example.androidpokedexcompose.ui.theme.colorPrimary
+import com.example.androidpokedexcompose.theme.AndroidPokedexComposeTheme
+import com.example.androidpokedexcompose.theme.colorPrimary
+
+@SuppressLint("CustomSplashScreen")
+class SplashActivity : ComponentActivity() {
+    companion object {
+        private const val TIME_SPLASH: Long =  5 * 1000
+    }
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            AndroidPokedexComposeTheme {
+                SplashScreen()
+            }
+        }
+        startPokedexActivityTime()
+    }
+
+    private fun startPokedexActivityTime() {
+        Handler(Looper.getMainLooper()).postDelayed({
+            goToPokedexActivity()
+        }, TIME_SPLASH)
+    }
+
+    private fun goToPokedexActivity() {
+        val options = android.app.ActivityOptions.makeCustomAnimation(
+            this, android.R.anim.fade_in, android.R.anim.fade_out
+        )
+        val intent = Intent(this, PokedexActivity::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
+        }
+        startActivity(intent, options.toBundle())
+    }
+}
 
 @Composable
 fun SplashScreen() {
@@ -49,5 +90,13 @@ fun SplashScreen() {
                     .height(150.dp)
             )
         }
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun SplashScreenPreview() {
+    AndroidPokedexComposeTheme {
+        SplashScreen()
     }
 }

@@ -4,6 +4,8 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:theme="@style/Theme.AndroidPokedexCompose"
+        android:name=".view.activities.Application"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -11,16 +13,13 @@
         android:label="@string/app_name"
         android:roundIcon="@drawable/pokemon"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AndroidPokedexCompose"
         tools:targetApi="31">
         <activity
-            android:name=".ui.activities.PokedexActivity"
-            android:exported="false"
-            android:theme="@style/Theme.AndroidPokedexCompose" />
+            android:name=".view.activities.PokedexActivity"
+            android:exported="false"/>
         <activity
-            android:name=".ui.activities.SplashActivity"
-            android:exported="true"
-            android:theme="@style/Theme.AndroidPokedexCompose">
+            android:name=".view.activities.SplashActivity"
+            android:exported="true">
             <meta-data
                 android:name="android.activity.launchSourceSplashScreen"
                 android:value="disabled" />

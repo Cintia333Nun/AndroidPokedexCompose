@@ -1,4 +1,4 @@
-package com.example.androidpokedexcompose.ui.components
+package com.example.androidpokedexcompose.feature_pokedex.presentation.components
 
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.padding
@@ -7,17 +7,18 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.example.androidpokedexcompose.data.model.Pokemon
+import androidx.navigation.NavController
+import com.example.androidpokedexcompose.feature_data_pokemon.data.model.Pokemon
 
 @Composable
-fun ListOfPokemons(data: List<Pokemon>) {
+fun ListOfPokemons(data: List<Pokemon>, navController: NavController) {
     LazyColumn(
         modifier = Modifier
             .fillMaxHeight()
-            .padding(top = 50.dp, start = 40.dp, end = 40.dp, bottom = 10.dp)
+            .padding(top = 20.dp, start = 40.dp, end = 40.dp, bottom = 10.dp)
     ) {
         items(data) { item ->
-            CardPokemon(item)
+            CardPokemon(item, navController)
         }
     }
 }

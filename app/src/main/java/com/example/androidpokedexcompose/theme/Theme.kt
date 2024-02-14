@@ -1,4 +1,4 @@
-package com.example.androidpokedexcompose.ui.theme
+package com.example.androidpokedexcompose.theme
 
 import android.app.Activity
 import android.os.Build
@@ -46,7 +46,7 @@ fun AndroidPokedexComposeTheme(
     if (!view.isInEditMode) {
         SideEffect {
             val window = (view.context as Activity).window
-            window.statusBarColor = colorScheme.primary.toArgb()
+            window.statusBarColor = colorPrimary.toArgb()
             WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = darkTheme
         }
     }
@@ -54,6 +54,6 @@ fun AndroidPokedexComposeTheme(
     MaterialTheme(
         colorScheme = colorScheme,
         typography = Typography,
-        content = content
+        content = content,
     )
 }

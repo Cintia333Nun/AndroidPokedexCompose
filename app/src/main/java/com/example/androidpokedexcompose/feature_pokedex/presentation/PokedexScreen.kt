@@ -1,4 +1,4 @@
-package com.example.androidpokedexcompose.ui.screens
+package com.example.androidpokedexcompose.feature_pokedex.presentation
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -16,16 +16,21 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.example.androidpokedexcompose.R
-import com.example.androidpokedexcompose.data.model.Pokemon
-import com.example.androidpokedexcompose.ui.components.ListOfPokemons
-import com.example.androidpokedexcompose.ui.components.SemiCircle
-import com.example.androidpokedexcompose.ui.theme.textColor
+import com.example.androidpokedexcompose.feature_data_pokemon.data.model.Pokemon
+import com.example.androidpokedexcompose.feature_pokedex.presentation.components.BackDialog
+import com.example.androidpokedexcompose.feature_pokedex.presentation.components.ListOfPokemons
+import com.example.androidpokedexcompose.view.generic_components.SemiCircle
+import com.example.androidpokedexcompose.theme.AndroidPokedexComposeTheme
+import com.example.androidpokedexcompose.theme.textColor
 
 @Composable
-fun PokedexScreen() {
+fun PokedexScreen(navController: NavController) {
     val dataList = listOf(
         Pokemon ("bulbasaur", "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png", false),
         Pokemon ("bulbasaur", "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png", true),
@@ -46,7 +51,7 @@ fun PokedexScreen() {
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier.fillMaxWidth()) {
-            Row(modifier = Modifier.padding(top = 16.dp)) {
+            Row(modifier = Modifier.padding(top = 20.dp, bottom = 10.dp)) {
                 Text(
                     text = "Pokedex",
                     color = textColor,
@@ -62,7 +67,16 @@ fun PokedexScreen() {
                         .height(100.dp)
                 )
             }
-            ListOfPokemons(data = dataList)
+            ListOfPokemons(data = dataList, navController)
         }
+        BackDialog()
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun PokedexPreview() {
+    AndroidPokedexComposeTheme {
+        PokedexScreen(navController = rememberNavController())
     }
 }

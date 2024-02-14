@@ -1,4 +1,4 @@
-package com.example.androidpokedexcompose.ui.components
+package com.example.androidpokedexcompose.view.generic_components
 
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
@@ -16,15 +16,17 @@ import coil.request.ImageRequest
 import com.example.androidpokedexcompose.R
 
 @Composable
-fun ImageWithCoil(url: String) {
+fun ImageWithCoil(url: String, width: Int = 80, height: Int = 80) {
     AsyncImage(
         model = ImageRequest.Builder(LocalContext.current)
             .data(url)
             .crossfade(true)
             .build(),
         placeholder = painterResource(R.drawable.pokeball),
-        contentDescription = stringResource(R.string.pokemon_not_load),
+        error = painterResource(R.drawable.pokeball),
+        //imageLoader = ImageLoader(LocalContext.current),
+        contentDescription = stringResource(R.string.whos_that_pokemon),
         contentScale = ContentScale.Crop,
-        modifier = Modifier.clip(CircleShape).width(80.dp).height(80.dp)
+        modifier = Modifier.clip(CircleShape).width(width.dp).height(height.dp)
     )
 }

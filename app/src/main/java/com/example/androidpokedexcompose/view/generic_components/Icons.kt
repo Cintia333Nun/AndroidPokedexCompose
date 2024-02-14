@@ -1,4 +1,4 @@
-package com.example.androidpokedexcompose.ui.components
+package com.example.androidpokedexcompose.view.generic_components
 
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width

@@ -1,4 +1,4 @@
-package com.example.androidpokedexcompose.data.model
+package com.example.androidpokedexcompose.feature_data_pokemon.data.model
 
 import com.google.gson.annotations.SerializedName
 
@@ -9,5 +9,5 @@ data class ResponseListPokemons(
 data class Pokemon(
     @SerializedName("name") val name: String,
     @SerializedName("url") val url: String,
-    val isFavorite: Boolean
+    var isFavorite: Boolean
 )
