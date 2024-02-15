@@ -1,4 +1,4 @@
-package com.example.androidpokedexcompose.feature_pokedex.presentation.components
+package com.example.androidpokedexcompose.feature_pokedex.components
 
 import androidx.activity.compose.BackHandler
 import androidx.compose.runtime.Composable

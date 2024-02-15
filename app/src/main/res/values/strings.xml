@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">POKEDEX</string>
+
+    <string name="end_point">https://pokeapi.co/</string>
+
     <string name="title_activity_pokedex">POKEDEX</string>
     <string name="whos_that_pokemon">¿Quién es ese pokemon?</string>
-    <string name="close">Cerrar</string>
+    <string name="close">Continuar</string>
 </resources>

@@ -2,10 +2,8 @@ package com.example.androidpokedexcompose.theme
 
 import androidx.compose.ui.graphics.Color
 
-val colorPrimary = Color(0xFFFFD300)
-val secondary = Color(0xFFC40101)
-val colorPrimaryDark = Color(0xFF700303)
-val colorAccent = Color(0xFFFFF6A7)
+val colorPrimary = Color(0xFFC40101)
+val colorAccent = Color(0xFF00538B)
 
 val colorCard = Color(0xFFF1F1F1)
 val colorGray = Color(0xFFA7A7A7)

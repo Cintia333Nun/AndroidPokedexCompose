@@ -1,4 +1,4 @@
-package com.example.androidpokedexcompose.feature_pokedex.presentation.components
+package com.example.androidpokedexcompose.feature_pokedex.components
 
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.padding
@@ -8,7 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.example.androidpokedexcompose.feature_data_pokemon.data.model.Pokemon
+import com.example.androidpokedexcompose.data.remote.models.Pokemon
 
 @Composable
 fun ListOfPokemons(data: List<Pokemon>, navController: NavController) {
@@ -17,7 +17,7 @@ fun ListOfPokemons(data: List<Pokemon>, navController: NavController) {
             .fillMaxHeight()
             .padding(top = 20.dp, start = 40.dp, end = 40.dp, bottom = 10.dp)
     ) {
-        items(data) { item ->
+        items(data) {item ->
             CardPokemon(item, navController)
         }
     }

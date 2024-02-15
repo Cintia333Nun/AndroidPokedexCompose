@@ -27,7 +27,7 @@ import com.airbnb.lottie.compose.animateLottieCompositionAsState
 import com.airbnb.lottie.compose.rememberLottieComposition
 import com.example.androidpokedexcompose.R
 import com.example.androidpokedexcompose.theme.AndroidPokedexComposeTheme
-import com.example.androidpokedexcompose.theme.colorPrimary
+import com.example.androidpokedexcompose.theme.textWhiteColor
 
 @SuppressLint("CustomSplashScreen")
 class SplashActivity : ComponentActivity() {
@@ -55,7 +55,7 @@ class SplashActivity : ComponentActivity() {
             this, android.R.anim.fade_in, android.R.anim.fade_out
         )
         val intent = Intent(this, PokedexActivity::class.java).apply {
-            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
+            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         }
         startActivity(intent, options.toBundle())
     }
@@ -63,7 +63,7 @@ class SplashActivity : ComponentActivity() {
 
 @Composable
 fun SplashScreen() {
-    Surface(color = colorPrimary) {
+    Surface(color = textWhiteColor) {
         Box(
             modifier = Modifier.fillMaxSize(),
             contentAlignment = Alignment.Center

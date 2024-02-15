@@ -30,14 +30,14 @@ fun CustomAlertDialog(
             Text(
                 modifier = Modifier.fillMaxWidth(),
                 text = title, textAlign = TextAlign.Center,
-                color = textColor
+                color = textWhiteColor
             )
         },
         text = {
             Text(
                 modifier = Modifier.fillMaxWidth(),
                 text = message, textAlign = TextAlign.Center,
-                color = textColor
+                color = textWhiteColor
             )
        },
         dismissButton = {

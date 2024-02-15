@@ -17,13 +17,11 @@ import androidx.core.view.WindowCompat
 
 private val DarkColorScheme = darkColorScheme(
     primary = colorPrimary,
-    secondary = secondary,
     tertiary = colorAccent
 )
 
 private val LightColorScheme = lightColorScheme(
     primary = colorPrimary,
-    secondary = secondary,
     tertiary = colorAccent
 )
 
@@ -34,10 +32,10 @@ fun AndroidPokedexComposeTheme(
     content: @Composable () -> Unit
 ) {
     val colorScheme = when {
-        dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
+        /*dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
             val context = LocalContext.current
             if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
-        }
+        }*/
 
         darkTheme -> DarkColorScheme
         else -> LightColorScheme

@@ -1,4 +1,4 @@
-package com.example.androidpokedexcompose.view.generic_components
+package com.example.androidpokedexcompose.feature_data_pokemon.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -11,10 +11,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.androidpokedexcompose.theme.colorCard
-import com.example.androidpokedexcompose.theme.secondary
+import com.example.androidpokedexcompose.theme.colorPrimary
 
 @Composable
 fun DataPokemon(title: String, description: String) {
@@ -29,10 +30,16 @@ fun DataPokemon(title: String, description: String) {
     ) {
         Column {
             Text(
-                text = title, color = secondary,
+                modifier = Modifier.fillMaxWidth(),
+                textAlign = TextAlign.Center,
+                text = title, color = colorPrimary,
                 fontSize = 18.sp, fontWeight = FontWeight.SemiBold,
             )
-            Text(text = description)
+            Text(
+                modifier = Modifier.fillMaxWidth(),
+                textAlign = TextAlign.Center,
+                text = description
+            )
         }
     }
 }

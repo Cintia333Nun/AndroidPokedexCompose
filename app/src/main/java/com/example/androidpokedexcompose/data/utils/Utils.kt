@@ -23,4 +23,12 @@ object Utils {
             //android.os.Process.killProcess(android.os.Process.myPid())
         }
     }
+
+    fun freeMemory() {
+        System.runFinalization()
+        Runtime.getRuntime().freeMemory()
+        Runtime.getRuntime().gc()
+        System.gc()
+    }
 }
+

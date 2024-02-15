@@ -1,10 +1,11 @@
 package com.example.androidpokedexcompose.view.generic_components
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Star
+import androidx.compose.material.icons.outlined.Close
 import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -21,9 +22,10 @@ fun StarIcon(color: Color) {
 }
 
 @Composable
-fun BackIcon() {
+fun BackIcon(color: Color, onClick: () -> Unit) {
     Icon(
-        imageVector = Icons.Filled.ArrowBack, contentDescription = "Back",
-        modifier = Modifier.width(24.dp).height(24.dp)
+        imageVector = Icons.Outlined.Close, contentDescription = "Back",
+        modifier = Modifier.width(40.dp).height(40.dp).clickable { onClick.invoke() },
+        tint = color
     )
 }

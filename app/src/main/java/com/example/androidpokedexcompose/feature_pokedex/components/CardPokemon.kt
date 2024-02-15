@@ -1,10 +1,12 @@
-package com.example.androidpokedexcompose.feature_pokedex.presentation.components
+package com.example.androidpokedexcompose.feature_pokedex.components
 
 import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.detectTapGestures
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.DropdownMenu
@@ -21,10 +23,8 @@ import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
 import com.example.androidpokedexcompose.data.utils.DestinationsUtils
-import com.example.androidpokedexcompose.data.utils.ParamsPokemonData
-import com.example.androidpokedexcompose.feature_data_pokemon.data.model.Pokemon
+import com.example.androidpokedexcompose.data.remote.models.Pokemon
 import com.example.androidpokedexcompose.theme.colorCard
 import com.example.androidpokedexcompose.theme.colorGray
 import com.example.androidpokedexcompose.theme.colorPrimary
@@ -46,7 +46,7 @@ fun CardPokemon(item: Pokemon, navController: NavController) {
                     onTap = {
                         try {
                             navController.navigate(
-                                "${DestinationsUtils.POKEMON_DATA}/${item.name}/?url=${item.url}"
+                                "${DestinationsUtils.POKEMON_DATA}/${item.name}/?url=${item.finalImage ?: ""}"
                             )
                         } catch (exception: Exception) {
                             Log.e("CardPokemon", "CardPokemon: ", exception)
@@ -57,11 +57,13 @@ fun CardPokemon(item: Pokemon, navController: NavController) {
     ) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.SpaceBetween,
             modifier = Modifier
                 .background(colorCard, shape = RoundedCornerShape(8.dp))
                 .padding(all = 20.dp)
+                .fillMaxWidth()
         ) {
-            ImageWithCoil(url = item.url)
+            ImageWithCoil(url = item.finalImage ?: "")
             Text(text = item.name,  modifier = Modifier.padding(start = 10.dp, end = 10.dp), fontSize = 18.sp)
             if (item.isFavorite) StarIcon(color = colorPrimary)
             else StarIcon(color = colorGray)
@@ -69,10 +71,11 @@ fun CardPokemon(item: Pokemon, navController: NavController) {
 
         DropdownMenu(
             expanded = expanded,
-            onDismissRequest = { expanded = false }
+            onDismissRequest = { expanded = false },
+            modifier = Modifier.background(color = colorPrimary)
         ) {
             DropdownMenuItem(
-                text = { Text("Add to favorites") },
+                text = { Text("Agregar a favoritos") },
                 onClick = {
                     item.isFavorite = !item.isFavorite
                     expanded = false

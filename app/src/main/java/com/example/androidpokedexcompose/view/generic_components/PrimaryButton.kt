@@ -9,7 +9,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.example.androidpokedexcompose.theme.secondary
+import com.example.androidpokedexcompose.theme.colorPrimary
 import com.example.androidpokedexcompose.theme.textWhiteColor
 
 @Composable
@@ -23,7 +23,7 @@ fun PrimaryButton(
         shape = RoundedCornerShape(8.dp),
         colors = ButtonDefaults.buttonColors(
             contentColor = textWhiteColor,
-            containerColor = secondary
+            containerColor = colorPrimary
         ),
         modifier = Modifier.fillMaxWidth().padding(vertical = vertical.dp, horizontal = horizontal.dp)
     ) {
