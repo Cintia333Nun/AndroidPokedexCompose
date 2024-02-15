@@ -7,5 +7,6 @@ import androidx.room.Entity
 data class EntityPokemon(
     @ColumnInfo(name = DB.COLUMN_POKEMON_NAME) val name: String,
     @ColumnInfo(name = DB.COLUMN_POKEMON_URL) val url: String,
+    @ColumnInfo(name = DB.COLUMN_POKEMON_IMAGE_URL) val urlImage: String,
     @ColumnInfo(name = DB.COLUMN_POKEMON_IS_FAV) val isFav: Boolean,
 )

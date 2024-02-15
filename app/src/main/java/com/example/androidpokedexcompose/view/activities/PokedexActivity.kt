@@ -9,6 +9,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.androidpokedexcompose.R
 import com.example.androidpokedexcompose.data.local.Room
+import com.example.androidpokedexcompose.data.pojos.CustomAlerts
 import com.example.androidpokedexcompose.data.remote.Retrofit
 import com.example.androidpokedexcompose.data.repository.PokemonsRepository
 import com.example.androidpokedexcompose.data.utils.DestinationsUtils
@@ -36,10 +37,10 @@ class PokedexActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val onBackCallback = { onBackPressedDispatcher.onBackPressed() }
-        viewModel.getPokemons(151)
         setContent {
             AddNavigationPokedex(viewModel, onBackCallback)
         }
+        viewModel.validateDownloadData()
     }
 }
 

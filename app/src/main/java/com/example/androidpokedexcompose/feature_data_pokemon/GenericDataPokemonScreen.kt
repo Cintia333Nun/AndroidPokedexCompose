@@ -1,6 +1,5 @@
 package com.example.androidpokedexcompose.feature_data_pokemon
 
-import android.widget.Toast
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -53,7 +52,7 @@ fun GenericDataPokemonScreen(viewModel: PokedexViewModel, name: String, url: Str
                 fontWeight = FontWeight.Bold,
                 fontSize = 40.sp,
             )
-            ImageWithCoil(url = url, width = 180, height = 180)
+            ImageWithCoil(key = name, url = url, width = 180, height = 180)
             Column(
                 modifier = Modifier
                     .fillMaxHeight()

@@ -30,11 +30,11 @@ import com.example.androidpokedexcompose.theme.colorGray
 import com.example.androidpokedexcompose.theme.colorPrimary
 import com.example.androidpokedexcompose.view.generic_components.ImageWithCoil
 import com.example.androidpokedexcompose.view.generic_components.StarIcon
+import com.example.androidpokedexcompose.view.view_model.PokedexViewModel
 
 @Composable
-fun CardPokemon(item: Pokemon, navController: NavController) {
+fun CardPokemon(viewModel: PokedexViewModel, item: Pokemon, navController: NavController) {
     var expanded by remember { mutableStateOf(false) }
-
     Box(
         modifier = Modifier
             .padding(top = 10.dp)
@@ -63,7 +63,7 @@ fun CardPokemon(item: Pokemon, navController: NavController) {
                 .padding(all = 20.dp)
                 .fillMaxWidth()
         ) {
-            ImageWithCoil(url = item.finalImage ?: "")
+            ImageWithCoil(key = item.name, url = item.finalImage ?: "")
             Text(text = item.name,  modifier = Modifier.padding(start = 10.dp, end = 10.dp), fontSize = 18.sp)
             if (item.isFavorite) StarIcon(color = colorPrimary)
             else StarIcon(color = colorGray)
@@ -78,6 +78,9 @@ fun CardPokemon(item: Pokemon, navController: NavController) {
                 text = { Text("Agregar a favoritos") },
                 onClick = {
                     item.isFavorite = !item.isFavorite
+                    viewModel.updatePokemonFav(
+                        name = item.name, status = item.isFavorite
+                    )
                     expanded = false
                 }
             )

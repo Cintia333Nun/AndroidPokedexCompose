@@ -9,7 +9,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.platform.LocalContext
 import com.example.androidpokedexcompose.data.utils.Utils
-import com.example.androidpokedexcompose.view.generic_components.CustomAlertDialog
+import com.example.androidpokedexcompose.view.generic_components.DefaultAlert
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -32,12 +32,13 @@ fun BackDialog() {
     }
 
     if (showAlert) {
-        CustomAlertDialog(
+        DefaultAlert(
             title = "Salir",
             message = "¿Estás seguro de que deseas salir?",
             confirmButtonText = "Cerrar app",
+            dismissButtonText = "Continuar",
             onDismiss = onDismiss,
-            callback = callBack
+            callback = callBack,
         )
     }
 }

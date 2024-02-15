@@ -75,6 +75,7 @@ dependencies {
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.material3:material3")
     implementation("androidx.lifecycle:lifecycle-runtime-compose:2.7.0")
+    implementation("androidx.paging:paging-compose:3.2.1")
     implementation(platform("androidx.compose:compose-bom:$composeBom"))
     implementation(platform("androidx.compose:compose-bom:$composeBom"))
     implementation("com.airbnb.android:lottie-compose:4.0.0")
