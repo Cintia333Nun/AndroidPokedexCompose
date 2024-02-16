@@ -9,12 +9,12 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.androidpokedexcompose.R
 import com.example.androidpokedexcompose.data.local.Room
-import com.example.androidpokedexcompose.data.pojos.CustomAlerts
 import com.example.androidpokedexcompose.data.remote.Retrofit
 import com.example.androidpokedexcompose.data.repository.PokemonsRepository
 import com.example.androidpokedexcompose.data.utils.DestinationsUtils
 import com.example.androidpokedexcompose.data.utils.ParamsPokemonData
 import com.example.androidpokedexcompose.data.utils.RoutesUtils
+import com.example.androidpokedexcompose.data.utils.Utils
 import com.example.androidpokedexcompose.data.utils.getViewModel
 import com.example.androidpokedexcompose.feature_data_pokemon.GenericDataPokemonScreen
 import com.example.androidpokedexcompose.view.view_model.PokedexViewModel
@@ -41,6 +41,11 @@ class PokedexActivity : ComponentActivity() {
             AddNavigationPokedex(viewModel, onBackCallback)
         }
         viewModel.validateDownloadData()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Utils.clearCache(this)
     }
 }
 

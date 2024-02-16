@@ -2,10 +2,6 @@ package com.example.androidpokedexcompose.view.view_model
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.paging.Pager
-import androidx.paging.PagingConfig
-import androidx.paging.PagingData
-import androidx.paging.cachedIn
 import com.example.androidpokedexcompose.data.local.EntityPokemon
 import com.example.androidpokedexcompose.data.pojos.AlertData
 import com.example.androidpokedexcompose.data.pojos.CustomAlerts
@@ -13,9 +9,9 @@ import com.example.androidpokedexcompose.data.pojos.TypesAlerts
 import com.example.androidpokedexcompose.data.repository.PokemonsRepository
 import com.example.androidpokedexcompose.data.remote.models.DataPokemon
 import com.example.androidpokedexcompose.data.remote.models.Pokemon
+import com.example.androidpokedexcompose.data.utils.Utils
 import com.example.androidpokedexcompose.feature_dinamic_list.models.Chain
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
@@ -197,6 +193,11 @@ class PokedexViewModel(repository: PokemonsRepository): ViewModel() {
 
     fun updatePokemonFav(name: String, status: Boolean) {
         dbPokemonsDataSource.updateFavPokemon(name = name, isFav = status)
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        Utils.freeMemory()
     }
 
     /*fun getPokemonsFromLocal(): Flow<PagingData<EntityPokemon>> {

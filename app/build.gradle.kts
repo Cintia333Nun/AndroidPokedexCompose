@@ -1,10 +1,8 @@
-import org.jetbrains.kotlin.gradle.plugin.extraProperties
-
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("com.google.devtools.ksp")
-    //id("dagger.hilt.android.plugin")
+    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -80,6 +78,7 @@ dependencies {
     implementation(platform("androidx.compose:compose-bom:$composeBom"))
     implementation("com.airbnb.android:lottie-compose:4.0.0")
     implementation("io.coil-kt:coil-compose:2.5.0")
+    implementation("androidx.work:work-runtime-ktx:2.9.0") //Resuelve error en el administrador de trabajo.
 
     // Retrofit
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
@@ -98,10 +97,10 @@ dependencies {
     implementation("androidx.navigation:navigation-compose:2.7.7")
 
     // HILT
-    /*implementation ("com.google.dagger:hilt-android:$dagger")
+    implementation ("com.google.dagger:hilt-android:$dagger")
     ksp ("com.google.dagger:hilt-compiler:$dagger")
     implementation ("androidx.hilt:hilt-work:$hilt")
-    ksp ("androidx.hilt:hilt-compiler:$hilt") */
+    ksp ("androidx.hilt:hilt-compiler:$hilt")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")

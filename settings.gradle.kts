@@ -13,6 +13,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "AndroidPokedexCompose"
+rootProject.name = "POKEDEX"
 include(":app")
  

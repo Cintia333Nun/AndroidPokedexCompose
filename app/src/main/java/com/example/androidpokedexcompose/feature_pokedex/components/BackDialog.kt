@@ -21,7 +21,6 @@ fun BackDialog() {
     val onDismiss = { showAlert = false }
     val callBack = {
         coroutineScope.launch(Dispatchers.IO) {
-            Utils.clearCache(context)
             Utils.closeApp(context)
         }
         showAlert = false
