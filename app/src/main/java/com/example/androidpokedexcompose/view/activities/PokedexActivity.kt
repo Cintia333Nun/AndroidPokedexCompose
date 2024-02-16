@@ -7,9 +7,8 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.androidpokedexcompose.R
-import com.example.androidpokedexcompose.data.local.Room
-import com.example.androidpokedexcompose.data.remote.Retrofit
+import com.example.androidpokedexcompose.data.local.RoomDB
+import com.example.androidpokedexcompose.data.remote.ApiPokemonsInterface
 import com.example.androidpokedexcompose.data.repository.PokemonsRepository
 import com.example.androidpokedexcompose.data.utils.DestinationsUtils
 import com.example.androidpokedexcompose.data.utils.ParamsPokemonData
@@ -21,26 +20,32 @@ import com.example.androidpokedexcompose.view.view_model.PokedexViewModel
 import com.example.androidpokedexcompose.feature_dinamic_list.PokemonDinamicListScreen
 import com.example.androidpokedexcompose.feature_pokedex.PokedexScreen
 import com.example.androidpokedexcompose.theme.AndroidPokedexComposeTheme
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class PokedexActivity : ComponentActivity() {
-    private val viewModel: PokedexViewModel by lazy {
+    @Inject
+    lateinit var apiPokemonsInterface: ApiPokemonsInterface
+    @Inject
+    lateinit var roomDatabase: RoomDB
+    private val viewModel by lazy {
         getViewModel {
             PokedexViewModel(
                 PokemonsRepository(
-                    Retrofit.provideApiRest(getString(R.string.end_point)),
-                    Room.provideRoomDatabase(application)
+                    apiPokemonsInterface,
+                    roomDatabase
                 )
-            )
-        }
+        ) }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val onBackCallback = { onBackPressedDispatcher.onBackPressed() }
         setContent {
+            viewModel.validateDownloadData()
             AddNavigationPokedex(viewModel, onBackCallback)
         }
-        viewModel.validateDownloadData()
     }
 
     override fun onDestroy() {

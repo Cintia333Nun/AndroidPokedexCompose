@@ -8,8 +8,10 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
+import com.example.androidpokedexcompose.R
 import com.example.androidpokedexcompose.data.utils.Utils
-import com.example.androidpokedexcompose.view.generic_components.DefaultAlert
+import com.example.androidpokedexcompose.view.generic_components.WifiAlert
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -31,11 +33,11 @@ fun BackDialog() {
     }
 
     if (showAlert) {
-        DefaultAlert(
-            title = "Salir",
-            message = "¿Estás seguro de que deseas salir?",
-            confirmButtonText = "Cerrar app",
-            dismissButtonText = "Continuar",
+        WifiAlert(
+            title = stringResource(id = R.string.close),
+            message = stringResource(id = R.string.is_ok_close),
+            confirmButtonText = stringResource(id = R.string.close_app),
+            dismissButtonText = stringResource(id = R.string.continue_button),
             onDismiss = onDismiss,
             callback = callBack,
         )

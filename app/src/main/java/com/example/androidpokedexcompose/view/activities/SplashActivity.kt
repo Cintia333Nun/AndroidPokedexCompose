@@ -8,10 +8,12 @@ import android.os.Handler
 import android.os.Looper
 import android.content.Intent
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -29,7 +31,7 @@ import com.example.androidpokedexcompose.R
 import com.example.androidpokedexcompose.theme.AndroidPokedexComposeTheme
 import com.example.androidpokedexcompose.theme.textWhiteColor
 
-@SuppressLint("CustomSplashScreen")
+@SuppressLint("CustomSplashScreen") // Se agrego a manifiesto metadato
 class SplashActivity : ComponentActivity() {
     companion object {
         private const val TIME_SPLASH: Long =  5 * 1000
@@ -65,7 +67,8 @@ class SplashActivity : ComponentActivity() {
 fun SplashScreen() {
     Surface(color = textWhiteColor) {
         Box(
-            modifier = Modifier.fillMaxSize(),
+            modifier = Modifier.fillMaxSize()
+                .background(MaterialTheme.colorScheme.background),
             contentAlignment = Alignment.Center
         ) {
             val composition by rememberLottieComposition(

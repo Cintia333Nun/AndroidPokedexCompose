@@ -1,9 +1,24 @@
 <resources>
     <string name="app_name">POKEDEX</string>
 
-    <string name="end_point">https://pokeapi.co/</string>
-
-    <string name="title_activity_pokedex">POKEDEX</string>
     <string name="whos_that_pokemon">¿Quién es ese pokemon?</string>
-    <string name="close">Continuar</string>
+
+    <!--Generic Data PokemonScreen -->
+    <string name="hapiness">Felicidad</string>
+    <string name="ratio">Ratio captura</string>
+    <string name="egg">Grupos huevo</string>
+    <string name="button_powers">Habilidades</string>
+    <string name="button_evolutions">Línea evolutiva</string>
+
+    <!-- Back Dialog Component -->
+    <string name="close">Salir</string>
+    <string name="is_ok_close">¿Estás seguro de que deseas salir?</string>
+    <string name="close_app">Cerrar app</string>
+    <string name="continue_button">Continuar</string>
+
+    <!-- Card Pokemon Component -->
+    <string name="add_pokemon">Agregar a favoritos</string>
+
+    <!-- CustomAlertDialog Component -->
+    <string name="no_connection">Se requiere conexión a internet</string>
 </resources>

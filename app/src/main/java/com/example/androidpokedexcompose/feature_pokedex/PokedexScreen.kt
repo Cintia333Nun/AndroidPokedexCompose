@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
@@ -27,7 +28,6 @@ import com.example.androidpokedexcompose.feature_pokedex.components.BackDialog
 import com.example.androidpokedexcompose.feature_pokedex.components.ListOfPokemons
 import com.example.androidpokedexcompose.view.generic_components.SemiCircle
 import com.example.androidpokedexcompose.theme.AndroidPokedexComposeTheme
-import com.example.androidpokedexcompose.theme.colorAccent
 import com.example.androidpokedexcompose.theme.transparentBackground
 import com.example.androidpokedexcompose.view.generic_components.CustomAlertDialog
 import com.example.androidpokedexcompose.view.view_model.PokedexViewModel
@@ -38,7 +38,7 @@ fun PokedexScreen(viewModel: PokedexViewModel, navController: NavController) {
     //val pagingItems: LazyPagingItems<EntityPokemon> = viewModel.getPokemonsFromLocal().collectAsLazyPagingItems()
     val isLoading by viewModel.isLoading.collectAsStateWithLifecycle()
 
-    Box {
+    Box(Modifier.background(MaterialTheme.colorScheme.background)) {
         SemiCircle()
         Column(
             verticalArrangement = Arrangement.Center,
@@ -65,7 +65,7 @@ fun PokedexScreen(viewModel: PokedexViewModel, navController: NavController) {
                 .clickable {},
             contentAlignment = Alignment.Center,
         ) {
-            CircularProgressIndicator(color = colorAccent)
+            CircularProgressIndicator(color = MaterialTheme.colorScheme.secondary)
         }
     }
     CustomAlertDialog(viewModel = viewModel)

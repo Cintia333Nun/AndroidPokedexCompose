@@ -11,14 +11,15 @@ import com.example.androidpokedexcompose.data.remote.models.DataPokemon
 import com.example.androidpokedexcompose.data.remote.models.Pokemon
 import com.example.androidpokedexcompose.data.utils.Utils
 import com.example.androidpokedexcompose.feature_dinamic_list.models.Chain
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-//@HiltViewModel
-//@Inject constructor()
-class PokedexViewModel(repository: PokemonsRepository): ViewModel() {
+@HiltViewModel
+class PokedexViewModel @Inject constructor (repository: PokemonsRepository): ViewModel() {
     companion object {
         const val LIMIT_SERVICE = 151
     }
@@ -51,11 +52,11 @@ class PokedexViewModel(repository: PokemonsRepository): ViewModel() {
         else {
             if (existData == 151) {
                 showAlertData(
-                    "Ya cuentas con 151 pokemons en tu pokedex, ¿Quieres actualizar su informacion?",
+                    "Ya cuentas con 151 pokemons en tu pokedex, ¿Quieres actualizar su información?",
                 )
             } else {
                 showAlertData(
-                    "Notamos que no tines los pokemones totales, cuentas con ${pokemons.value.size} ¿Quieres actualizar su informacion?",
+                    "Notamos que no tines los pokemones totales, cuentas con ${pokemons.value.size} ¿Quieres actualizar su información?",
                 )
             }
         }
@@ -64,7 +65,7 @@ class PokedexViewModel(repository: PokemonsRepository): ViewModel() {
     private fun showAlertData(message: String) {
         setShowAlert(
             CustomAlerts(
-                type = TypesAlerts.DEFAULT, isVisible = true, alertData = AlertData(
+                type = TypesAlerts.WIFI_STATUS, isVisible = true, alertData = AlertData(
                     title = "Actualizar pokemones",
                     message = message,
                     confirmButtonText = "No gracias",

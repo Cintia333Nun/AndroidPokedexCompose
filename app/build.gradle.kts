@@ -78,6 +78,7 @@ dependencies {
     implementation(platform("androidx.compose:compose-bom:$composeBom"))
     implementation("com.airbnb.android:lottie-compose:4.0.0")
     implementation("io.coil-kt:coil-compose:2.5.0")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0")
     implementation("androidx.work:work-runtime-ktx:2.9.0") //Resuelve error en el administrador de trabajo.
 
     // Retrofit

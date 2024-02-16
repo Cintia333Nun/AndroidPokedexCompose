@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -14,15 +15,13 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.androidpokedexcompose.theme.colorCard
-import com.example.androidpokedexcompose.theme.colorPrimary
 
 @Composable
 fun DataPokemon(title: String, description: String) {
     Box(
         modifier = Modifier
             .background(
-                colorCard, shape = RoundedCornerShape(8.dp)
+                MaterialTheme.colorScheme.surface, shape = RoundedCornerShape(8.dp)
             )
             .padding(all = 10.dp)
             .fillMaxWidth(),
@@ -32,13 +31,14 @@ fun DataPokemon(title: String, description: String) {
             Text(
                 modifier = Modifier.fillMaxWidth(),
                 textAlign = TextAlign.Center,
-                text = title, color = colorPrimary,
+                text = title, color = MaterialTheme.colorScheme.primary,
                 fontSize = 18.sp, fontWeight = FontWeight.SemiBold,
             )
             Text(
                 modifier = Modifier.fillMaxWidth(),
                 textAlign = TextAlign.Center,
-                text = description
+                text = description,
+                color = MaterialTheme.colorScheme.outline
             )
         }
     }

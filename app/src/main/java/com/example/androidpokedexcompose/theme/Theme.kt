@@ -15,14 +15,28 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
 
-private val DarkColorScheme = darkColorScheme(
+private val LightColorPalette = lightColorScheme(
     primary = colorPrimary,
-    tertiary = colorAccent
+    secondary = colorAccent,
+    background = whiteBackground,
+    surface = colorCard,
+    onPrimary = colorPrimary,
+    onSecondary = colorAccent,
+    onBackground = whiteBackground,
+    onSurface = colorCard,
+    outline = textColor
 )
 
-private val LightColorScheme = lightColorScheme(
+private val DarkColorPalette = darkColorScheme(
     primary = colorPrimary,
-    tertiary = colorAccent
+    secondary = colorAccent,
+    background = blackBackground,
+    surface = colorCardDark,
+    onPrimary = colorPrimary,
+    onSecondary = colorAccent,
+    onBackground = blackBackground,
+    onSurface = colorCardDark,
+    outline = textWhiteColor
 )
 
 @Composable
@@ -32,13 +46,12 @@ fun AndroidPokedexComposeTheme(
     content: @Composable () -> Unit
 ) {
     val colorScheme = when {
-        /*dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
+        dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
             val context = LocalContext.current
             if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
-        }*/
-
-        darkTheme -> DarkColorScheme
-        else -> LightColorScheme
+        }
+        darkTheme -> DarkColorPalette
+        else -> LightColorPalette
     }
     val view = LocalView.current
     if (!view.isInEditMode) {

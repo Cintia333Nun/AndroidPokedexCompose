@@ -1,7 +1,5 @@
 package com.example.androidpokedexcompose.data.local
 
-import android.os.Build
-
 class DB {
     companion object {
         const val NAME = "pokedex.db"

@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -19,8 +20,6 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.androidpokedexcompose.data.utils.ParamsPokemonData
-import com.example.androidpokedexcompose.theme.colorCard
-import com.example.androidpokedexcompose.theme.colorPrimary
 import com.example.androidpokedexcompose.theme.textWhiteColor
 import com.example.androidpokedexcompose.view.generic_components.BackIcon
 import com.example.androidpokedexcompose.view.view_model.PokedexViewModel
@@ -41,12 +40,12 @@ fun PokemonDinamicListScreen(
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier
                 .fillMaxSize()
-                .background(color = colorPrimary)
+                .background(color = MaterialTheme.colorScheme.primary)
                 .align(Alignment.TopCenter)
                 .padding(all = 20.dp)
         ) {
             BackIcon(
-                color = colorCard,
+                color = MaterialTheme.colorScheme.surface,
                 onClick = onBackPressed
             )
             LazyColumn(

@@ -4,9 +4,9 @@ import com.example.androidpokedexcompose.data.local.DaoPokemons
 import com.example.androidpokedexcompose.data.local.RoomDB
 import com.example.androidpokedexcompose.data.remote.ApiPokemonsDataSource
 import com.example.androidpokedexcompose.data.remote.ApiPokemonsInterface
+import javax.inject.Inject
 
-class PokemonsRepository(private val apiInterface: ApiPokemonsInterface, private val dataBase: RoomDB) {
+class PokemonsRepository @Inject constructor(private val apiInterface: ApiPokemonsInterface, private val dataBase: RoomDB) {
     fun getRemotePokemonDataSource(): ApiPokemonsDataSource = ApiPokemonsDataSource(apiInterface)
-
     fun getLocalPokemonsDataSource(): DaoPokemons = dataBase.daoPokemons()
 }

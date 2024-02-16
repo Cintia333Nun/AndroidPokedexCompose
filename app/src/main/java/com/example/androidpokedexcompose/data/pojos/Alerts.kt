@@ -1,9 +1,9 @@
 package com.example.androidpokedexcompose.data.pojos
 
-enum class TypesAlerts{ DEFAULT, } // PROGRESS, ERROR
+enum class TypesAlerts{ WIFI_STATUS, } // PROGRESS, ERROR
 data class CustomAlerts(
     val isVisible: Boolean,
-    val type: TypesAlerts = TypesAlerts.DEFAULT,
+    val type: TypesAlerts = TypesAlerts.WIFI_STATUS,
     val alertData: AlertData =  AlertData(
         "","","","", { }, { },
     )
