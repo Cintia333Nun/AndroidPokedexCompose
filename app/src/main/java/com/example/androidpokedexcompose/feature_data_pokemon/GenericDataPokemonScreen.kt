@@ -35,6 +35,7 @@ import com.example.androidpokedexcompose.view.generic_components.ImageWithCoil
 import com.example.androidpokedexcompose.view.generic_components.PrimaryButton
 import com.example.androidpokedexcompose.view.generic_components.SemiCircle
 import com.example.androidpokedexcompose.theme.AndroidPokedexComposeTheme
+import com.example.androidpokedexcompose.theme.colorPrimary
 import com.example.androidpokedexcompose.theme.textWhiteColor
 import com.example.androidpokedexcompose.view.view_model.PokedexViewModel
 import kotlinx.coroutines.CoroutineScope
@@ -53,7 +54,7 @@ fun GenericDataPokemonScreen(
         Modifier.background(MaterialTheme.colorScheme.background)
     ) {
         val context = LocalContext.current
-        SemiCircle(MaterialTheme.colorScheme.primary)
+        SemiCircle(colorPrimary)
         Column(
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally,

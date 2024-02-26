@@ -97,7 +97,7 @@ dependencies {
     //NAVIGATION
     implementation("androidx.navigation:navigation-compose:2.7.7")
 
-    // HILT
+    // DAGGER HILT
     implementation ("com.google.dagger:hilt-android:$dagger")
     ksp ("com.google.dagger:hilt-compiler:$dagger")
     implementation ("androidx.hilt:hilt-work:$hilt")

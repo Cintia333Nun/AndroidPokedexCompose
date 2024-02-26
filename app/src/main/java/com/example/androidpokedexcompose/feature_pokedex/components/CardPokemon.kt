@@ -31,6 +31,7 @@ import com.example.androidpokedexcompose.data.utils.DestinationsUtils
 import com.example.androidpokedexcompose.data.remote.models.Pokemon
 import com.example.androidpokedexcompose.data.utils.Utils
 import com.example.androidpokedexcompose.theme.colorGray
+import com.example.androidpokedexcompose.theme.colorPrimary
 import com.example.androidpokedexcompose.theme.textWhiteColor
 import com.example.androidpokedexcompose.view.generic_components.ImageWithCoil
 import com.example.androidpokedexcompose.view.generic_components.StarIcon
@@ -87,14 +88,14 @@ fun CardPokemon(viewModel: PokedexViewModel, item: Pokemon, navController: NavCo
                 text = item.name,  modifier = Modifier.padding(start = 10.dp, end = 10.dp),
                 fontSize = 18.sp, color = MaterialTheme.colorScheme.outline
             )
-            if (item.isFavorite) StarIcon(color = MaterialTheme.colorScheme.primary)
+            if (item.isFavorite) StarIcon(color = colorPrimary)
             else StarIcon(color = colorGray)
         }
 
         DropdownMenu(
             expanded = expanded,
             onDismissRequest = { expanded = false },
-            modifier = Modifier.background(color = MaterialTheme.colorScheme.primary)
+            modifier = Modifier.background(color = colorPrimary)
         ) {
             DropdownMenuItem(
                 text = {

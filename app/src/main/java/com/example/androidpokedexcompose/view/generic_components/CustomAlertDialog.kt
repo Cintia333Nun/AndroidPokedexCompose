@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
@@ -17,6 +16,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.example.androidpokedexcompose.R
 import com.example.androidpokedexcompose.data.pojos.TypesAlerts
 import com.example.androidpokedexcompose.data.utils.Utils
+import com.example.androidpokedexcompose.theme.colorPrimary
 import com.example.androidpokedexcompose.theme.textColor
 import com.example.androidpokedexcompose.theme.textWhiteColor
 import com.example.androidpokedexcompose.view.view_model.PokedexViewModel
@@ -52,7 +52,7 @@ fun WifiAlert(
 ) {
     val context = LocalContext.current
     AlertDialog(
-        containerColor = MaterialTheme.colorScheme.primary,
+        containerColor = colorPrimary,
         onDismissRequest = onDismiss,
         title = {
             Text(

@@ -15,6 +15,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.androidpokedexcompose.theme.colorPrimary
 
 @Composable
 fun DataPokemon(title: String, description: String) {
@@ -31,7 +32,7 @@ fun DataPokemon(title: String, description: String) {
             Text(
                 modifier = Modifier.fillMaxWidth(),
                 textAlign = TextAlign.Center,
-                text = title, color = MaterialTheme.colorScheme.primary,
+                text = title, color = colorPrimary,
                 fontSize = 18.sp, fontWeight = FontWeight.SemiBold,
             )
             Text(

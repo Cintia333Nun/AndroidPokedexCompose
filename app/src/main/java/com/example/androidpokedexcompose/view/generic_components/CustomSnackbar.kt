@@ -1,7 +1,6 @@
 package com.example.androidpokedexcompose.view.generic_components
 
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Snackbar
 import androidx.compose.material3.SnackbarDuration
 import androidx.compose.material3.SnackbarHost
@@ -12,6 +11,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.example.androidpokedexcompose.theme.colorPrimary
 import com.example.androidpokedexcompose.theme.textWhiteColor
 
 @Composable
@@ -27,7 +27,7 @@ fun CustomSnackbar(
     ) {
         Snackbar(
             modifier = Modifier.padding(8.dp),
-            containerColor = MaterialTheme.colorScheme.primary,
+            containerColor = colorPrimary,
             contentColor = textWhiteColor,
         ) {
             Text(text = message)

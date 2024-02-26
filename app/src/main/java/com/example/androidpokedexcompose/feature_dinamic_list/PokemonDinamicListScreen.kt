@@ -20,6 +20,7 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.androidpokedexcompose.data.utils.ParamsPokemonData
+import com.example.androidpokedexcompose.theme.colorPrimary
 import com.example.androidpokedexcompose.theme.textWhiteColor
 import com.example.androidpokedexcompose.view.generic_components.BackIcon
 import com.example.androidpokedexcompose.view.view_model.PokedexViewModel
@@ -40,7 +41,7 @@ fun PokemonDinamicListScreen(
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier
                 .fillMaxSize()
-                .background(color = MaterialTheme.colorScheme.primary)
+                .background(color = colorPrimary)
                 .align(Alignment.TopCenter)
                 .padding(all = 20.dp)
         ) {
