@@ -3,6 +3,7 @@ package com.example.androidpokedexcompose.view.activities
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.viewModels
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -29,15 +30,7 @@ class PokedexActivity : ComponentActivity() {
     lateinit var apiPokemonsInterface: ApiPokemonsInterface
     @Inject
     lateinit var roomDatabase: RoomDB
-    private val viewModel by lazy {
-        getViewModel {
-            PokedexViewModel(
-                PokemonsRepository(
-                    apiPokemonsInterface,
-                    roomDatabase
-                )
-        ) }
-    }
+    private val viewModel: PokedexViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
