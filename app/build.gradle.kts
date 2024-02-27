@@ -54,7 +54,7 @@ android {
 val versions = mapOf(
     "roomVersion" to "2.6.1",
     "dagger" to "2.50",
-    "hilt" to "1.1.0",
+    "hilt" to "1.2.0",
     "composeBom" to "2023.08.00",
 )
 extra["versions"] = versions
