@@ -98,13 +98,13 @@ class PokedexViewModel @Inject constructor (repository: PokemonsRepository): Vie
                 if(result.isSuccess) {
                     val tempList = result.getOrNull()
                     if (!tempList.isNullOrEmpty()) {
-                        setLoading(status = true)
                         _pokemons.value = tempList
                         tempList.forEachIndexed { index, pokemon ->
                             downloadPokemonsImage(pokemon.url, index)
                         }
                         saveLocalPokemonsFromService()
-                        setLoading(status = false)
+                        //setLoading(status = true)
+                        //setLoading(status = false)
                     }
                 }
             }
